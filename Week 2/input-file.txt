@@ -1,0 +1,7 @@
+Hello
+this
+is
+the
+input 
+file.
+Let's check if shit works!
