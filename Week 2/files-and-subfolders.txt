@@ -1,0 +1,20 @@
+./.ipynb_checkpoints/Python Week 2-checkpoint.ipynb
+./md-files/file-one.md
+./md-files/file-two.md
+./__pycache__/utils.cpython-37.pyc
+./email-list01.txt
+./email-list02.txt
+./exercise02.py
+./exercises03.py
+./file-names.txt
+./files-and-subfolders.txt
+./headlines-output.txt
+./input-file.txt
+./output-file01.txt
+./Python Week 2.ipynb
+./read_from_file_ex.txt
+./sample_csv.csv
+./utils.py
+./.ipynb_checkpoints
+./md-files
+./__pycache__

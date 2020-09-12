@@ -1,0 +1,16 @@
+.ipynb_checkpoints
+email-list01.txt
+email-list02.txt
+exercise02.py
+exercises03.py
+file-names.txt
+files-and-subfolders.txt
+headlines-output.txt
+input-file.txt
+md-files
+output-file01.txt
+Python Week 2.ipynb
+read_from_file_ex.txt
+sample_csv.csv
+utils.py
+__pycache__
