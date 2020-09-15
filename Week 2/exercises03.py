@@ -1,4 +1,6 @@
-import webget as webget
+import argparse
+
+
 
 file = 'read_from_file_ex.txt'
 

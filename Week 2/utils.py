@@ -63,17 +63,4 @@ def write_headlines(md_files, output_file):
 md_list = ['./md-files/file-one.md','./md-files/file-two.md']
 
 
-
-def fifth_function(lst, output_file):
-    lines_to_output = []
-    for file in lst:
-        with open(file,'r') as file_object:
-            for line in file_object.readlines():
-                if line[0] == "#":
-                    lines_to_output.append(line);
-        with open(output_file, 'w') as file_object:
-            for line in lines_to_output:
-                file_object.write(line)
-
-
 write_headlines(md_list, './headlines-output.txt')
