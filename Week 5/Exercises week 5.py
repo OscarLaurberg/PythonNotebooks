@@ -13,6 +13,8 @@
 
 import requests
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 def downloadFile(url):
   response = requests.get(url)
@@ -57,6 +59,7 @@ df = pd.read_csv(downloadFile(url), sep=';')
 start = '2008K1';
 #rows = df.loc[df['TID'] == start];
 marriedOrSep2008Q1 = df.loc[(df['TID'] == start)].iloc[0][3]
+print(marriedOrSep2008Q1)
 values = tuple(list(df['INDHOLD']))
 time = tuple(list(df['TID']))
 valuesSubtracted = []
@@ -71,3 +74,41 @@ ax = df_plot.plot.bar(x='Time', y='Changes');
 
 
 #Show 2 plots in same figure: 'Married' and 'Never Married' for all ages in DK in 2020 (Hint: x axis is age from 0-125, y axis is how many people in the 2 categories). Add lengend to show names on graphs
+
+url ='https://api.statbank.dk/v1/data/FOLK1A/CSV?delimiter=Semicolon&CIVILSTAND=G%2CU&ALDER=*'
+df = pd.read_csv(downloadFile(url), sep=';')
+ages = df.ALDER.unique()
+ages = np.delete(ages,0)
+ageSpan = len(ages)
+married = df.loc[(df['CIVILSTAND'] == 'Gift/separeret'), 'INDHOLD'].tolist()
+married.pop(0)
+notMarried = df.loc[(df['CIVILSTAND'] == 'Ugift'), 'INDHOLD'].tolist()
+notMarried.pop(0)
+print(notMarried)
+print(married)
+
+
+
+# DIDNT GET THe PLOT TO WORK - BUT I GOT THE CORRECT DATA IN LISTS ABOVE
+
+# DIDNT GET THe PLOT TO WORK - BUT I GOT THE CORRECT DATA IN LISTS ABOVE
+data = [notMarried,married]
+
+
+X = np.arange(3)
+plt.bar(X + 0.00, data[1], color = 'b', width = 0.25,)
+plt.bar(X + 0.25, notMarried[0], color = 'g', width = 0.25, label='not married')
+
+# Add xticks on the middle of the group bars
+plt.xlabel('age', fontweight='bold')
+plt.xticks([r + barWidth for r in range(len(married))], ['A', 'B', 'C', 'D', 'E'])
+ 
+# Create legend & Show graphic
+plt.legend()
+plt.show()
+
+plt.bar(0.15, married, width = 0.3)
+plt.bar(0.15, notMarried, width = 0.3)
+#setting the xticks. Note x1 and x2 are tuples, thus + is concatenation
+plt.xticks(range(0, 125)) 
+plt.show()
