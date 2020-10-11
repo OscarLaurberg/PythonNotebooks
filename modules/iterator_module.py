@@ -5,6 +5,9 @@ from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import ProcessPoolExecutor
 from operator import itemgetter
+from operator import itemgetter
+import matplotlib.pyplot as plt
+
 
 class MyIterator():
   def __init__(self, url_list):
@@ -59,3 +62,12 @@ class MyIterator():
     highestAmount = max(res, key=itemgetter(1))[1]
     fileName = max(res, key=itemgetter(1))[0]
     return(f'Hardest read is filename: {fileName}, with and avg. of {highestAmount} vowels per word')
+
+  def make_plot(self):
+    res = list(map(self.average_number_of_vowels, self.filenames))
+    sorted_by_avg = sorted(res, key=lambda tup: tup[1], reverse=True)
+    plt.bar(*zip(*sorted_by_avg), width=0.4)
+    plt.xlabel('File-name')
+    plt.ylabel('Avg vowels pr word')
+    plt.show()
+    
