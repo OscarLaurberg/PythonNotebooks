@@ -18,20 +18,6 @@ java = ResultProxy.fetchall()
 
 app = Flask(__name__)
 
-tasks = [
-    {
-        'id': 1,
-        'title': 'Go shopping',
-        'description': 'Milk, Cheese, Fruit, Wine', 
-        'done': False
-    },
-    {
-        'id': 2,
-        'title': 'Study',
-        'description': 'Learn about uWsgi server and flask with python', 
-        'done': False
-    }
-]
 
 
 @app.route('/todo/api/python', methods=['GET'])
